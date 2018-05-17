@@ -22,6 +22,10 @@ then
     echo "-- Database is now active ..."
 
     supervisorctl start slurmdbd
+    sleep 5
+    supervisorctl status slurmdbd
+    supervisorctl tail -50000 slurmdbd stderr
+
 fi
 
 if [ "$1" = "slurmctld" ]
