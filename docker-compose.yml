@@ -14,6 +14,7 @@ services:
       - var_lib_mysql:/var/lib/mysql
 
   slurmdbd:
+    build: .
     image: slurm-docker-cluster:17.02.10
     command: ["slurmdbd"]
     container_name: slurmdbd
@@ -28,6 +29,7 @@ services:
       - mysql
 
   slurmctld:
+    build: .
     image: slurm-docker-cluster:17.02.10
     command: ["slurmctld"]
     container_name: slurmctld
@@ -43,6 +45,7 @@ services:
       - "slurmdbd"
 
   c1:
+    build: .
     image: slurm-docker-cluster:17.02.10
     command: ["slurmd"]
     hostname: c1
