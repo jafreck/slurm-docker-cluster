@@ -61,3 +61,5 @@ then
 fi
 
 exec "$@"
+
+tail -F /dev/null
