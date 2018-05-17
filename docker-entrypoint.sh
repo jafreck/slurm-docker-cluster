@@ -64,6 +64,6 @@ then
     supervisorctl start slurmd
 fi
 
-exec "$@"
-
 tail -F /dev/null
+
+exec "$@"
