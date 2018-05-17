@@ -33,20 +33,13 @@ RUN yum makecache fast \
            mariadb-server \
            mariadb-devel \
            psmisc \
+           supervisor \
            bash-completion \
     && yum clean all \
     && rm -rf /var/cache/yum
 
-RUN pip install Cython nose \
-    && pip3 install Cython nose
-
 RUN set -x \
     && wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-amd64" \
-#    && wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-amd64" \
-#    && export GNUPGHOME="$(mktemp -d)" \
-#    && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 \
-#    && gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu \
-#    && rm -rf $GNUPGHOME /usr/local/bin/gosu.asc \
     && chmod +x /usr/local/bin/gosu \
     && gosu nobody true
 
