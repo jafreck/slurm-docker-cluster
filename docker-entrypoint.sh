@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
 
-
+echo "- Starting all Slurm processes under supervisord"
+/usr/bin/supervisord --configuration /etc/supervisord.conf
 
 if [ "$1" = "slurmdbd" ]
 then
