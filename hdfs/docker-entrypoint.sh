@@ -28,6 +28,6 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
     </configuration>' > /etc/hadoop/hdfs-site.xml
 
 
-exec "$@"
+exec "$*"
 
 tail -F /dev/null

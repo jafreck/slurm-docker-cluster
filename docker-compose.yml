@@ -85,7 +85,7 @@ services:
 
   hdfs-namenode:
     build: ./hdfs/
-    command: "hdfs namenode -format ; hdfs --config /etc/hadoop namenode"
+    command: hdfs namenode -format ; hdfs --config /etc/hadoop namenode
     hostname: hdfs-namenode
     container_name: hdfs-namenode
     stdin_open: true
