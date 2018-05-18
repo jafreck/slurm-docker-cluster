@@ -5,6 +5,7 @@ ARG HADOOP_VERSION=3.1.0
 ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0-openjdk
 
 RUN yum makecache fast \
+    && yum -y install epel-release \
     && yum -y install java-1.8.0-openjdk supervisor \
     && yum clean all \
     && rm -rf /var/cache/yum
