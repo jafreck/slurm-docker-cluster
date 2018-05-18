@@ -1,4 +1,4 @@
-version: "2.2"
+version: "3.6"
 
 services:
   mysql:
@@ -68,7 +68,7 @@ services:
   
   hdfs-datanode:
     build: ./hdfs/
-    command: ["hdfs --config /etc/hadoop datanode"]
+    command: ["supervisorctl start hdfs-datnode"]
     hostname: hdfs-datanode
     container_name: hdfs-datanode
     stdin_open: true
