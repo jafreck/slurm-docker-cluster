@@ -11,7 +11,6 @@ RUN set -x \
     && curl -fSL "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz" | tar -xvz -C /opt/
 
 RUN ln -s /opt/hadoop-$HADOOP_VERSION/etc/hadoop /etc/hadoop
-RUN cp /etc/hadoop/mapred-site.xml.template /etc/hadoop/mapred-site.xml
 RUN mkdir /opt/hadoop-$HADOOP_VERSION/logs
 
 ENV HADOOP_PREFIX=/opt/hadoop-$HADOOP_VERSION
