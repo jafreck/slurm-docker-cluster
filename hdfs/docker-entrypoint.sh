@@ -10,7 +10,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <property>
         <name>fs.defaultFS</name>
-        <value>hdfs://'$MASTER_IP':8020</value>
+        <value>hdfs://namenode:8020</value>
     </property>
 </configuration>' > /etc/hadoop/core-site.xml
 
