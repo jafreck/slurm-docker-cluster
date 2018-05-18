@@ -27,4 +27,6 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
         </property>
     </configuration>' > $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 
+tail -F /dev/null
+
 exec "$@"
