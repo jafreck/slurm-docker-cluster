@@ -65,6 +65,22 @@ services:
       - "6818"
     depends_on:
       - "slurmctld"
+  
+  hdfs-datanode:
+    build: ./hdfs/
+    command: ["hdfs --config $HADOOP_CONF_DIR start ${HDFS_ROLE}"]
+    hostname: 
+    container_name: c1
+    stdin_open: true
+    tty: true
+  
+  hdfs-namenode:
+    build: ./hdfs/
+    command: ["hdfs namenode -format", "hdfs --config $HADOOP_CONF_DIR start namenode"]
+    hostname: 
+    container_name: c1
+    stdin_open: true
+    tty: true
 
 volumes:
   etc_munge:
@@ -72,3 +88,4 @@ volumes:
   slurm_jobdir:
   var_lib_mysql:
   var_log_slurm:
+  mnt_hdfs:
