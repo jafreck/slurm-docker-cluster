@@ -16,7 +16,6 @@ RUN set -x \
 RUN ln -s /opt/hadoop-$HADOOP_VERSION/etc/hadoop /etc/hadoop
 RUN mkdir /opt/hadoop-$HADOOP_VERSION/logs
 
-ENV HADOOP_PREFIX=/opt/hadoop-$HADOOP_VERSION
 ENV HADOOP_CONF_DIR=/etc/hadoop
 ENV HADOOP_HOME=/opt/hadoop-${HADOOP_VERSION}
 ENV PATH $HADOOP_PREFIX/bin/:$PATH

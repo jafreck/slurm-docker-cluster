@@ -12,7 +12,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
         <name>fs.defaultFS</name>
         <value>hdfs://'$MASTER_IP':8020</value>
     </property>
-</configuration>' > $HADOOP_HOME/etc/hadoop/core-site.xml
+</configuration>' > /etc/hadoop/core-site.xml
 
 echo '<?xml version="1.0" encoding="UTF-8"?>
     <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
@@ -25,7 +25,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
             <name>dfs.datanode.data.dir</name>
             <value>file:///batch/hadoop</value>
         </property>
-    </configuration>' > $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+    </configuration>' > /etc/hadoop/hdfs-site.xml
 
 tail -F /dev/null
 
