@@ -73,7 +73,14 @@ services:
     container_name: datanode
     stdin_open: true
     tty: true
-  
+    environment:
+      - MASTER_IP
+    expose:
+      - "50075"
+      - "50475"
+      - "50010"
+      - "50020"
+
   hdfs-namenode:
     build: ./hdfs/
     command: hdfs namenode -format; hdfs --config ${HADOOP_CONF_DIR} namenode
@@ -83,6 +90,11 @@ services:
     tty: true
     environment:
       - MASTER_IP
+    expose:
+      - "50070"
+      - "50470"
+      - "8020"
+      - "9000"
 
 volumes:
   etc_munge:
