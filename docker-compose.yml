@@ -68,7 +68,7 @@ services:
   
   hdfs-datanode:
     build: ./hdfs/
-    command: ["hdfs --config $HADOOP_CONF_DIR start ${HDFS_ROLE}"]
+    command: ["hdfs --config $HADOOP_CONF_DIR datanode"]
     hostname: datanode
     container_name: datanode
     stdin_open: true
@@ -76,7 +76,7 @@ services:
   
   hdfs-namenode:
     build: ./hdfs/
-    command: /bin/bash -c hdfs namenode -format; hdfs --config $HADOOP_CONF_DIR start namenode
+    command: /bin/bash -c hdfs namenode -format; hdfs --config $HADOOP_CONF_DIR namenode
     hostname: namenode
     container_name: namenode
     stdin_open: true
