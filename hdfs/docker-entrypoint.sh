@@ -27,15 +27,4 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
         </property>
     </configuration>' > $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 
-
-if [ $IS_MASTER -eq "1" ]; then
-    echo 'starting namenode and datanode'
-    hdfs namenode -format
-    $HADOOP_HOME/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
-    $HADOOP_HOME/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
-else
-    echo 'starting datanode - namenode at ' $MASTER_IP ':8020'
-    $HADOOP_HOME/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
-fi
-
 exec "$@"
