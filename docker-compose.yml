@@ -76,7 +76,7 @@ services:
   
   hdfs-namenode:
     build: ./hdfs/
-    command: ["hdfs namenode -format", "hdfs --config $HADOOP_CONF_DIR start namenode"]
+    command: /bin/bash -c hdfs namenode -format; hdfs --config $HADOOP_CONF_DIR start namenode
     hostname: namenode
     container_name: namenode
     stdin_open: true
