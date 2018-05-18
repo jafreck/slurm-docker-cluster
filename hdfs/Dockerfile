@@ -18,7 +18,7 @@ RUN mkdir /opt/hadoop-$HADOOP_VERSION/logs
 
 ENV HADOOP_CONF_DIR=/etc/hadoop
 ENV HADOOP_HOME=/opt/hadoop-${HADOOP_VERSION}
-ENV PATH $HADOOP_PREFIX/bin/:$PATH
+ENV PATH $HADOOP_HOME/bin/:$PATH
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
