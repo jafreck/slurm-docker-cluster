@@ -69,8 +69,8 @@ services:
   hdfs-datanode:
     build: ./hdfs/
     command: ["hdfs --config ${HADOOP_CONF_DIR} datanode"]
-    hostname: datanode
-    container_name: datanode
+    hostname: hdfs-datanode
+    container_name: hdfs-datanode
     stdin_open: true
     tty: true
     environment:
@@ -80,6 +80,8 @@ services:
       - "50475"
       - "50010"
       - "50020"
+    depends_on:
+      - "hdfs-namenode"
 
   hdfs-namenode:
     build: ./hdfs/
