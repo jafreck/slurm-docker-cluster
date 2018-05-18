@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+echo "- Starting all HDFS processes under supervisord"
+/usr/bin/supervisord --configuration /etc/supervisord.conf
+
 # MASTER_IP=$(echo -e $(hostname -I) | tr -d '[:space]')
 
 # Create a directory for the hadoop file system

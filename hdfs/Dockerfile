@@ -5,7 +5,7 @@ ARG HADOOP_VERSION=3.1.0
 ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0-openjdk
 
 RUN yum makecache fast \
-    && yum -y install java-1.8.0-openjdk \
+    && yum -y install java-1.8.0-openjdk supervisor \
     && yum clean all \
     && rm -rf /var/cache/yum
 
@@ -21,6 +21,7 @@ ENV HADOOP_HOME=/opt/hadoop-${HADOOP_VERSION}
 ENV PATH $HADOOP_HOME/bin/:$PATH
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+COPY supervisord.conf /etc/supervisord.conf
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
