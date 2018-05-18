@@ -77,11 +77,12 @@ services:
   hdfs-namenode:
     build: ./hdfs/
     command: hdfs namenode -format; hdfs --config ${HADOOP_CONF_DIR} namenode
-    hostname: namenode
-    container_name: namenode
+    hostname: hdfs-namenode
+    container_name: hdfs-namenode
     stdin_open: true
     tty: true
-
+    environment:
+      - MASTER_IP
 volumes:
   etc_munge:
   etc_slurm:
