@@ -64,7 +64,7 @@ services:
   
   hdfs-datanode:
     build: ./hdfs/
-    image: aztk/staging:slurm
+    image: aztk/staging:hdfs
     command: ["supervisorctl start hdfs-datnode"]
     hostname: hdfs-datanode
     stdin_open: true
@@ -81,7 +81,7 @@ services:
 
   hdfs-namenode:
     build: ./hdfs/
-    image: aztk/staging:slurm
+    image: aztk/staging:hdfs
     command: ["supervisorctl start hdfs-namenode"]
     hostname: hdfs-namenode
     stdin_open: true
