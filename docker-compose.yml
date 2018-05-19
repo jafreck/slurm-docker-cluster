@@ -4,7 +4,6 @@ services:
   mysql:
     image: mysql:5.7
     hostname: mysql
-    container_name: mysql
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
       MYSQL_DATABASE: slurm_acct_db
@@ -15,9 +14,8 @@ services:
 
   slurmdbd:
     build: .
-    #image: slurm-docker-cluster:17.02.10
+    image: aztk/staging:slurm
     command: ["slurmdbd"]
-    container_name: slurmdbd
     hostname: slurmdbd
     stdin_open: true
     tty: true
@@ -32,9 +30,8 @@ services:
 
   slurmctld:
     build: .
-    #image: slurm-docker-cluster:17.02.10
+    image: aztk/staging:slurm
     command: ["slurmctld"]
-    container_name: slurmctld
     hostname: slurmctld
     stdin_open: true
     tty: true
@@ -48,12 +45,11 @@ services:
     depends_on:
       - "slurmdbd"
 
-  c1:
+  slurmd:
     build: .
-    #image: slurm-docker-cluster:17.02.10
+    image: aztk/staging:slurm
     command: ["slurmd"]
     hostname: c1
-    container_name: c1
     stdin_open: true
     tty: true
     volumes:
@@ -68,9 +64,9 @@ services:
   
   hdfs-datanode:
     build: ./hdfs/
+    image: aztk/staging:slurm
     command: ["supervisorctl start hdfs-datnode"]
     hostname: hdfs-datanode
-    container_name: hdfs-datanode
     stdin_open: true
     tty: true
     environment:
@@ -85,9 +81,9 @@ services:
 
   hdfs-namenode:
     build: ./hdfs/
+    image: aztk/staging:slurm
     command: ["supervisorctl start hdfs-namenode"]
     hostname: hdfs-namenode
-    container_name: hdfs-namenode
     stdin_open: true
     tty: true
     environment:
