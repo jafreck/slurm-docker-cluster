@@ -62,5 +62,3 @@ then
 fi
 
 tail -F /dev/null
-
-exec "$@"
